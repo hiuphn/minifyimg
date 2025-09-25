@@ -47,6 +47,8 @@ export function ImageDropzone() {
     onDrop,
     accept: ACCEPTED_TYPES,
     multiple: true, // Allow multiple files
+    noClick: false, // Allow clicking to open file dialog
+    noKeyboard: false, // Allow keyboard navigation
   })
 
   return (
@@ -54,7 +56,12 @@ export function ImageDropzone() {
       {...getRootProps()}
       className={`border border-2 rounded-3 d-flex flex-column align-items-center justify-content-center w-100" style={{height: '256px', cursor: 'pointer', background: isDragActive ? '#e9ecef' : '#f8f9fa'}}`}
     >
-      <input {...getInputProps()} />
+      <input 
+        {...getInputProps()} 
+        multiple
+        accept="image/jpeg,image/jpg,image/png,image/webp"
+        style={{ display: 'none' }}
+      />
       <div className="d-flex flex-column align-items-center justify-content-center pt-3 pb-4">
         <Upload
           className={`mb-3" style={{width: '40px', height: '40px', color: isDragActive ? '#0d6efd' : '#adb5bd'}}`}
@@ -69,7 +76,7 @@ export function ImageDropzone() {
           )}
         </p>
         <p className="text-muted small">
-          JPG, PNG hoặc WebP (Hỗ trợ nhiều ảnh)
+          JPG, PNG hoặc WebP • Chọn nhiều ảnh cùng lúc
         </p>
       </div>
     </div>
