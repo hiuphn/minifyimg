@@ -1,0 +1,6 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Custom styles nếu cần */
+body {
+  font-family: system-ui, sans-serif;
+}
